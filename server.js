@@ -34,7 +34,9 @@ app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) }
 app.put('/image', (req, res) => { image.handleImageEntries(req, res, db) })
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
-app.listen(3000, ()=> { console.log('app is running on port 3000') })
+app.listen(process.env.PORT || 3000, ()=> { 
+	console.log(`app is running on port ${process.env.PORT}`); 
+})
 
 //  // Load hash from your password DB.
 //  bcrypt.compare("cats", '$2a$10$rfttTetxbDLlBZdbnkSOKuoUHCZ/M.p1ML0Q6MUJvfpUBN8snZ3EG', function(err, res) {
